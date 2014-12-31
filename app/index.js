@@ -6,51 +6,44 @@ var yosay = require('yosay');
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
     this.pkg = require('../package.json');
-  },
-
-  prompting: function () {
-    var done = this.async();
-
-    // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the ace' + chalk.red('Refluxify') + ' generator!'
     ));
-
-    var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
-
-    this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
-
-      done();
-    }.bind(this));
   },
 
   writing: {
     app: function () {
-      this.fs.copy(
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json')
-      );
-      this.fs.copy(
-        this.templatePath('_bower.json'),
-        this.destinationPath('bower.json')
-      );
-    },
+      var done = this.async();
 
-    projectfiles: function () {
-      this.fs.copy(
-        this.templatePath('editorconfig'),
-        this.destinationPath('.editorconfig')
-      );
-      this.fs.copy(
-        this.templatePath('jshintrc'),
-        this.destinationPath('.jshintrc')
-      );
+      this.remote(this.pkg.src, function (err, remote, files) {
+        var directories = [
+              '__tests__',
+              'assets',
+              'gulp'
+            ],
+            files = [
+              '.gitignore',
+              '.jscsrc',
+              'gulpfile.js',
+              'index.html',
+              'package.json',
+              'server.js',
+            ];
+
+        if (err) {
+          return done(err);
+        }
+
+        directories.forEach(function (directory) {
+          remote.directory(directory, directory);
+        });
+
+        files.forEach(function (file) {
+          remote.copy(file, file);
+        });
+
+        done();
+      }.bind(this));
     }
   },
 

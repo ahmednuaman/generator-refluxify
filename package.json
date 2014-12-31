@@ -5,6 +5,7 @@
   "license": "MIT",
   "main": "app/index.js",
   "repository": "ahmednuaman/generator-refluxify",
+  "src": "https://github.com/ahmednuaman/refluxify/archive/0.0.1.tar.gz",
   "author": {
     "name": "Ahmed Nuaman",
     "email": "ahmed@ahmednuaman.com",
