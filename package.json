@@ -21,7 +21,16 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "scaffold",
+    "framework",
+    "component",
+    "front-end",
+    "app",
+    "gulp",
+    "browserify",
+    "flux",
+    "react"
   ],
   "dependencies": {
     "yeoman-generator": "^0.18.0",
