@@ -5,6 +5,10 @@
 
 ## Getting Started
 
+### What is Refluxify?
+
+It's a simple React/Flux app built using Browserify and Gulp. [You can try it out here](http://ahmednuaman.github.io/refluxify/) and [checkout the code here](https://github.com/ahmednuaman/refluxify).
+
 ### What is Yeoman?
 
 Trick question. It's not a thing. It's this guy:
