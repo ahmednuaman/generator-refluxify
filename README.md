@@ -1,4 +1,4 @@
-# generator-refluxify [![Build Status](https://secure.travis-ci.org/ahmednuaman/generator-refluxify.png?branch=master)](https://travis-ci.org/ahmednuaman/generator-refluxify)
+# generator-refluxify [![Build Status](https://travis-ci.org/ahmednuaman/generator-refluxify.svg)](https://travis-ci.org/ahmednuaman/generator-refluxify)
 
 > [Yeoman](http://yeoman.io) generator
 
